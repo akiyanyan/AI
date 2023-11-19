@@ -3,7 +3,7 @@
 ## 1. リポジトリをクローンする
 
 ```bash
-git clone https://github.com/yuyuyu2118/dalle3-tutorial-dalle3
+git clone https://github.com/yuyuyu2118/dalle3-tutorial-gpt4vision
 ```
 
 ## 2. ディレクトリに移動する
@@ -36,5 +36,4 @@ npm install express openai cors
 
 ```bash
 npm start
-```# dalle3-tutorial-gpt4vision
-# dalle3-tutorial-gpt4vision
+```
