@@ -39,4 +39,28 @@ app.post('/generate', async (req, res) => {
   }
 });
 
+app.post('/generateVision', async (req, res) => {
+  try {
+    const url = req.body.url;
+    const response = await openai.chat.completions.create({
+      model: "gpt-4-vision-preview",
+      messages: [
+        {
+          role: "user",
+          content: [
+            { type: "text", text: "What’s in this image? Describe it in Japanese." },
+            { type: "image_url", image_url: { "url": url } },
+          ],
+        },
+      ],
+    });
+    res.send(response.choices[0]);
+  } catch (error) {
+    res.status(500).send({
+      error: '説明文の生成に失敗しました。',
+      details: error.message
+    });
+  }
+});
+
 app.listen(port, () => console.log('Listening on port', port));
